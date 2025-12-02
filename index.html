@@ -3,71 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deney Listesi</title>
+    <title>Bilim Atölyesi | Deney Videoları</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* GENEL AYARLAR */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Uzay/Bilim Temalı Koyu Arkaplan */
+            color: #ffffff;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
+
+        /* ANA KAPSAYICI */
         .container {
-            max-width: 600px;
-            width: 100%;
-            background: white;
+            width: 90%;
+            max-width: 500px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .link-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
             text-align: center;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            box-sizing: border-box; /* Buton taşmasını önler */
-            transition: background 0.3s;
         }
-        .link-btn:hover {
-            background-color: #0056b3;
+
+        /* BAŞLIK ALANI */
+        header {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
         }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin: 0;
+            background: -webkit-linear-gradient(#00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* Yazıya degrade efekti */
+            text-shadow: 0px 4px 10px rgba(0, 198, 255, 0.3);
+        }
+
+        p.subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        /* DENEY KARTLARI LİSTESİ */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* ÖZEL KART TASARIMI (Glassmorphism) */
+        .card {
+            background: rgba(255, 255, 255, 0.05); /* Yarı saydam */
+            backdrop-filter: blur(10px); /* Buzlu cam efekti */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Kartın üzerine gelince (Hover) */
+        .card:hover {
+            transform: translateY(-5px) scale(1.02); /* Hafif yukarı kalkma */
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Kart içindeki Numara */
+        .card-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00c6ff;
+            margin-right: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        /* Kart içindeki Yazı */
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        /* İkon */
+        .card-icon {
+            margin-left: auto; /* İkonu en sağa iter */
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        /* Alt Bilgi */
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Animasyon Tanımları */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Kartların sırayla gelmesi için animasyon */
+        .card { animation: fadeInUp 0.5s ease-out backwards; }
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🧪 Deney Listesi</h1>
-        <p style="text-align:center;">İzlemek istediğiniz deneye tıklayın:</p>
+        <header>
+            <h1>DENEY ATÖLYESİ</h1>
+            <p class="subtitle">İzlemek istediğiniz deneyi seçin</p>
+        </header>
 
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_1" class="link-btn" target="_blank">1. Deney: Suyun Kaldırma Kuvveti</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_2" class="link-btn" target="_blank">2. Deney: Yanardağ Patlaması</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_3" class="link-btn" target="_blank">3. Deney: Elektrik Devresi</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_4" class="link-btn" target="_blank">4. Deney: Yoğunluk Kulesi</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_5" class="link-btn" target="_blank">5. Deney: Asit ve Bazlar</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_6" class="link-btn" target="_blank">6. Deney: Güneş Sistemi</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_7" class="link-btn" target="_blank">7. Deney: Mikroskop İncelemesi</a>
-        
-        <a href="https://www.youtube.com/watch?v=VIDEO_LINK_8" class="link-btn" target="_blank">8. Deney: Mıknatısın Gücü</a>
+        <div class="card-list">
+            
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">1</div>
+                <div class="card-title">Suyun Kaldırma Kuvveti</div>
+                <div class="card-icon">💧</div>
+            </a>
 
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">2</div>
+                <div class="card-title">Yanardağ Patlaması</div>
+                <div class="card-icon">🌋</div>
+            </a>
+
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">3</div>
+                <div class="card-title">Elektrik Devresi</div>
+                <div class="card-icon">⚡</div>
+            </a>
+
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">4</div>
+                <div class="card-title">Yoğunluk Kulesi</div>
+                <div class="card-icon">🧪</div>
+            </a>
+
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">5</div>
+                <div class="card-title">Asit ve Bazlar</div>
+                <div class="card-icon">🍋</div>
+            </a>
+
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">6</div>
+                <div class="card-title">Güneş Sistemi</div>
+                <div class="card-icon">🪐</div>
+            </a>
+
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">7</div>
+                <div class="card-title">Mikroskop İncelemesi</div>
+                <div class="card-icon">🔬</div>
+            </a>
+
+            <a href="https://youtube.com/..." class="card" target="_blank">
+                <div class="card-number">8</div>
+                <div class="card-title">Mıknatısın Gücü</div>
+                <div class="card-icon">🧲</div>
+            </a>
+
+        </div>
+
+        <footer>
+            &copy; 2025 Bilim Projesi
+        </footer>
     </div>
 
 </body>
