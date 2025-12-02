@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İngiliz Kültür Kolejleri | Deney Atölyesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* GENEL AYARLAR */
+        /* --- GENEL AYARLAR --- */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* Dikey ortalama */
         }
 
         .container {
@@ -27,24 +27,22 @@
             text-align: center;
         }
 
-        /* HEADER ALANI */
+        /* --- HEADER (LOGO ve BAŞLIK) --- */
         header {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             animation: fadeInDown 1s ease-out;
         }
 
-        /* LOGO AYARI */
         .school-logo {
-            max-width: 160px; /* Logo boyutu */
+            max-width: 160px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
-            display: inline-block;
         }
 
         h1 {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 700;
             margin: 0;
             background: -webkit-linear-gradient(#00c6ff, #0072ff);
             -webkit-background-clip: text;
@@ -56,18 +54,85 @@
         p.subtitle {
             font-size: 0.95rem;
             opacity: 0.8;
-            margin-top: 8px;
+            margin-top: 5px;
             font-weight: 300;
         }
 
-        /* LİSTE YAPISI */
-        .card-list {
-            display: flex;
+        /* --- YAŞ SEÇİM EKRANI (LANDING) --- */
+        #age-selection-screen {
+            display: flex; /* Başlangıçta görünür */
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        /* KART TASARIMI */
+        .age-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+        }
+
+        .age-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+            border-color: #00c6ff;
+        }
+
+        .age-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+            color: #00c6ff;
+        }
+
+        .age-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        /* --- VİDEO LİSTESİ EKRANI (BAŞLANGIÇTA GİZLİ) --- */
+        #video-list-screen {
+            display: none; /* Başlangıçta gizli */
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn Up 0.5s ease-out;
+        }
+
+        /* GERİ DÖN BUTONU */
+        .back-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            align-self: flex-start; /* Sola yasla */
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-color: white;
+        }
+
+        /* KART TASARIMI (AYNI) */
         .card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
@@ -79,15 +144,12 @@
             display: flex;
             align-items: center;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-5px) scale(1.02);
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .card-number {
@@ -102,7 +164,6 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
             flex-shrink: 0;
         }
 
@@ -127,25 +188,14 @@
             letter-spacing: 1px;
         }
 
-        /* ANİMASYONLAR */
+        /* Animasyonlar */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-25px); }
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .card { animation: fadeInUp 0.6s ease-out backwards; }
-        .card:nth-child(1) { animation-delay: 0.15s; }
-        .card:nth-child(2) { animation-delay: 0.25s; }
-        .card:nth-child(3) { animation-delay: 0.35s; }
-        .card:nth-child(4) { animation-delay: 0.45s; }
-        .card:nth-child(5) { animation-delay: 0.55s; }
-        .card:nth-child(6) { animation-delay: 0.65s; }
-        .card:nth-child(7) { animation-delay: 0.75s; }
-        .card:nth-child(8) { animation-delay: 0.85s; }
-
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(25px); scale: 0.95; }
-            to { opacity: 1; transform: translateY(0); scale: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -154,67 +204,112 @@
     <div class="container">
         <header>
             <img src="https://i.hizliresim.com/fwbjey0.png" alt="İngiliz Kültür Kolejleri Logosu" class="school-logo">
-            
             <h1>DENEY ATÖLYESİ</h1>
-            <p class="subtitle">İzlemek istediğiniz deneyi seçin</p>
+            <p class="subtitle" id="main-subtitle">Lütfen yaş grubunuzu seçin</p>
         </header>
 
-        <div class="card-list">
+        <div id="age-selection-screen">
             
-            <a href="https://drive.google.com/file/d/1bpc9Rsbgcd1N53hqTp9KEZ1ssPax7H0c/view" class="card" target="_blank">
-                <div class="card-number">1</div>
-                <div class="card-title">Balıkları Yakalayalım</div>
-                <div class="card-icon">🐟</div>
-            </a>
+            <div class="age-btn" onclick="handle4Yas()">
+                <span class="age-number">4</span>
+                <span class="age-text">YAŞ GRUBU</span>
+            </div>
 
-            <a href="https://drive.google.com/file/d/12sa7TzS5GxiJNLK7qm6tu8Z_TeZmqf5W/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">2</div>
-                <div class="card-title">Bitkiler Dünyasına Yolculuk</div>
-                <div class="card-icon">🌿</div>
-            </a>
+            <div class="age-btn" onclick="show5Yas()">
+                <span class="age-number">5</span>
+                <span class="age-text">YAŞ GRUBU</span>
+            </div>
 
-            <a href="https://drive.google.com/file/d/1XzIn9TExdLrG2MZVhVuNdcRxYP5mYeV9/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">3</div>
-                <div class="card-title">Hacivat Karagöz</div>
-                <div class="card-icon">🎭</div>
-            </a>
+        </div>
 
-            <a href="https://drive.google.com/file/d/1uI2NyvSa-_d9NoQRlkHlkjzQHSlO5pAb/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">4</div>
-                <div class="card-title">Mozaik Resim</div>
-                <div class="card-icon">🎨</div>
-            </a>
+        <div id="video-list-screen">
+            
+            <button class="back-btn" onclick="goBack()">
+                &#8592; Yaş Seçimine Dön
+            </button>
 
-            <a href="https://drive.google.com/file/d/1lLQRkdg1NrTf8CXWg-2LM--31DeCOv1s/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">5</div>
-                <div class="card-title">Parıldayan Nesneler</div>
-                <div class="card-icon">✨</div>
-            </a>
+            <div class="card-list">
+                
+                <a href="https://drive.google.com/file/d/1bpc9Rsbgcd1N53hqTp9KEZ1ssPax7H0c/view" class="card" target="_blank">
+                    <div class="card-number">1</div>
+                    <div class="card-title">Balıkları Yakalayalım</div>
+                    <div class="card-icon">🐟</div>
+                </a>
 
-            <a href="https://drive.google.com/file/d/15Wz7o4af3ax92jqLmCSIftYOSQ9TPc3q/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">6</div>
-                <div class="card-title">Rüzgardan Elektrik Üreten Ev</div>
-                <div class="card-icon">🏠</div>
-            </a>
+                <a href="https://drive.google.com/file/d/12sa7TzS5GxiJNLK7qm6tu8Z_TeZmqf5W/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">2</div>
+                    <div class="card-title">Bitkiler Dünyasına Yolculuk</div>
+                    <div class="card-icon">🌿</div>
+                </a>
 
-            <a href="https://drive.google.com/file/d/1uJ5K4qZz2h9tWL7FvRfpBBzN3t72i6eK/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">7</div>
-                <div class="card-title">Yanardağ Deneyi</div>
-                <div class="card-icon">🌋</div>
-            </a>
+                <a href="https://drive.google.com/file/d/1XzIn9TExdLrG2MZVhVuNdcRxYP5mYeV9/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">3</div>
+                    <div class="card-title">Hacivat Karagöz</div>
+                    <div class="card-icon">🎭</div>
+                </a>
 
-            <a href="https://drive.google.com/file/d/1OER6dAjk1O5f8kWuFwQtK7DLDYCwOSeo/view?usp=drive_link" class="card" target="_blank">
-                <div class="card-number">8</div>
-                <div class="card-title">Yapay Kar Deneyi</div>
-                <div class="card-icon">❄️</div>
-            </a>
+                <a href="https://drive.google.com/file/d/1uI2NyvSa-_d9NoQRlkHlkjzQHSlO5pAb/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">4</div>
+                    <div class="card-title">Mozaik Resim</div>
+                    <div class="card-icon">🎨</div>
+                </a>
 
+                <a href="https://drive.google.com/file/d/1lLQRkdg1NrTf8CXWg-2LM--31DeCOv1s/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">5</div>
+                    <div class="card-title">Parıldayan Nesneler</div>
+                    <div class="card-icon">✨</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/15Wz7o4af3ax92jqLmCSIftYOSQ9TPc3q/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">6</div>
+                    <div class="card-title">Rüzgardan Elektrik Üreten Ev</div>
+                    <div class="card-icon">🏠</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1uJ5K4qZz2h9tWL7FvRfpBBzN3t72i6eK/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">7</div>
+                    <div class="card-title">Yanardağ Deneyi</div>
+                    <div class="card-icon">🌋</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1OER6dAjk1O5f8kWuFwQtK7DLDYCwOSeo/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">8</div>
+                    <div class="card-title">Yapay Kar Deneyi</div>
+                    <div class="card-icon">❄️</div>
+                </a>
+
+            </div>
         </div>
 
         <footer>
             &copy; 2025 İngiliz Kültür Kolejleri
         </footer>
     </div>
+
+    <script>
+        function show5Yas() {
+            // Yaş seçimini gizle
+            document.getElementById('age-selection-screen').style.display = 'none';
+            // Video listesini göster
+            document.getElementById('video-list-screen').style.display = 'flex';
+            // Başlığı güncelle
+            document.getElementById('main-subtitle').innerText = "5 Yaş Grubu Deneyleri";
+        }
+
+        function handle4Yas() {
+            // Henüz hazır olmadığı için uyarı ver
+            alert("🚧 4 Yaş Grubu deney videoları hazırlanıyor.\nÇok yakında burada olacak!");
+        }
+
+        function goBack() {
+            // Video listesini gizle
+            document.getElementById('video-list-screen').style.display = 'none';
+            // Yaş seçimini tekrar göster
+            document.getElementById('age-selection-screen').style.display = 'flex';
+            // Başlığı eski haline getir
+            document.getElementById('main-subtitle').innerText = "Lütfen yaş grubunuzu seçin";
+        }
+    </script>
 
 </body>
 </html>
