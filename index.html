@@ -27,18 +27,19 @@
             text-align: center;
         }
 
-        /* LOGO VE BAŞLIK ALANI */
+        /* HEADER ALANI */
         header {
             margin-bottom: 35px;
             animation: fadeInDown 1s ease-out;
         }
 
-        /* OKUL LOGOSU AYARLARI */
+        /* LOGO AYARI */
         .school-logo {
-            width: 120px; /* Logo boyutu */
+            max-width: 150px;
             height: auto;
             margin-bottom: 20px;
-            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3)); /* Logoya gölge */
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+            border-radius: 10px; /* Köşeleri hafif yumuşatır */
         }
 
         h1 {
@@ -59,13 +60,14 @@
             font-weight: 300;
         }
 
-        /* KART LİSTESİ VE TASARIMI (Önceki ile aynı) */
+        /* LİSTE YAPISI */
         .card-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
+        /* KART TASARIMI */
         .card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
@@ -101,18 +103,21 @@
             justify-content: center;
             border-radius: 50%;
             box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            flex-shrink: 0; /* Numaranın ezilmesini engeller */
         }
 
         .card-title {
             font-size: 1.05rem;
             font-weight: 500;
             text-align: left;
+            line-height: 1.4;
         }
 
         .card-icon {
             margin-left: auto;
             font-size: 1.3rem;
             opacity: 0.8;
+            padding-left: 10px;
         }
 
         footer {
@@ -122,7 +127,7 @@
             letter-spacing: 1px;
         }
 
-        /* Animasyon Tanımları */
+        /* ANİMASYONLAR */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-25px); }
             to { opacity: 1; transform: translateY(0); }
@@ -142,14 +147,13 @@
             from { opacity: 0; transform: translateY(25px); scale: 0.95; }
             to { opacity: 1; transform: translateY(0); scale: 1; }
         }
-
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <img src="okul-logosu.png" alt="İngiliz Kültür Kolejleri Logosu" class="school-logo">
+            <img src="https://i.hizliresim.com/fwbjey0.jpg" onerror="this.src='https://hizliresim.com/fwbjey0'" alt="İngiliz Kültür Kolejleri" class="school-logo">
             
             <h1>DENEY ATÖLYESİ</h1>
             <p class="subtitle">İzlemek istediğiniz deneyi seçin</p>
@@ -157,52 +161,52 @@
 
         <div class="card-list">
             
-            <a href="https://youtube.com/..." class="card" target="_blank">
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
                 <div class="card-number">1</div>
-                <div class="card-title">Suyun Kaldırma Kuvveti</div>
-                <div class="card-icon">💧</div>
+                <div class="card-title">Balıkları Yakalayalım</div>
+                <div class="card-icon">🐟</div>
             </a>
 
-            <a href="https://youtube.com/..." class="card" target="_blank">
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
                 <div class="card-number">2</div>
-                <div class="card-title">Yanardağ Patlaması</div>
+                <div class="card-title">Bitkiler Dünyasına Yolculuk</div>
+                <div class="card-icon">🌿</div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
+                <div class="card-number">3</div>
+                <div class="card-title">Hacivat Karagöz</div>
+                <div class="card-icon">🎭</div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
+                <div class="card-number">4</div>
+                <div class="card-title">Mozaik Resim</div>
+                <div class="card-icon">🎨</div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
+                <div class="card-number">5</div>
+                <div class="card-title">Parıldayan Nesneler</div>
+                <div class="card-icon">✨</div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
+                <div class="card-number">6</div>
+                <div class="card-title">Rüzgardan Elektrik Üreten Ev</div>
+                <div class="card-icon">🏠</div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
+                <div class="card-number">7</div>
+                <div class="card-title">Yanardağ Deneyi</div>
                 <div class="card-icon">🌋</div>
             </a>
 
-            <a href="https://youtube.com/..." class="card" target="_blank">
-                <div class="card-number">3</div>
-                <div class="card-title">Elektrik Devresi</div>
-                <div class="card-icon">⚡</div>
-            </a>
-
-            <a href="https://youtube.com/..." class="card" target="_blank">
-                <div class="card-number">4</div>
-                <div class="card-title">Yoğunluk Kulesi</div>
-                <div class="card-icon">🧪</div>
-            </a>
-
-            <a href="https://youtube.com/..." class="card" target="_blank">
-                <div class="card-number">5</div>
-                <div class="card-title">Asit ve Bazlar</div>
-                <div class="card-icon">🍋</div>
-            </a>
-
-            <a href="https://youtube.com/..." class="card" target="_blank">
-                <div class="card-number">6</div>
-                <div class="card-title">Güneş Sistemi</div>
-                <div class="card-icon">🪐</div>
-            </a>
-
-            <a href="https://youtube.com/..." class="card" target="_blank">
-                <div class="card-number">7</div>
-                <div class="card-title">Mikroskop İncelemesi</div>
-                <div class="card-icon">🔬</div>
-            </a>
-
-            <a href="https://youtube.com/..." class="card" target="_blank">
+            <a href="https://drive.google.com/drive/folders/1ozvB-VnibQd7vtsJiPa9eSRP-_W9brYg" class="card" target="_blank">
                 <div class="card-number">8</div>
-                <div class="card-title">Mıknatısın Gücü</div>
-                <div class="card-icon">🧲</div>
+                <div class="card-title">Yapay Kar Deneyi</div>
+                <div class="card-icon">❄️</div>
             </a>
 
         </div>
