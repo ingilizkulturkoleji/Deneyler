@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Dikey ortalama */
+            justify-content: center;
         }
 
         .container {
@@ -27,7 +27,7 @@
             text-align: center;
         }
 
-        /* --- HEADER (LOGO ve BAŞLIK) --- */
+        /* --- HEADER --- */
         header {
             margin-bottom: 25px;
             animation: fadeInDown 1s ease-out;
@@ -58,9 +58,9 @@
             font-weight: 300;
         }
 
-        /* --- YAŞ SEÇİM EKRANI (LANDING) --- */
+        /* --- SEÇİM EKRANI --- */
         #age-selection-screen {
-            display: flex; /* Başlangıçta görünür */
+            display: flex;
             flex-direction: column;
             gap: 20px;
             margin-top: 20px;
@@ -102,12 +102,12 @@
             letter-spacing: 2px;
         }
 
-        /* --- VİDEO LİSTESİ EKRANI (BAŞLANGIÇTA GİZLİ) --- */
-        #video-list-screen {
+        /* --- LİSTE EKRANLARI --- */
+        .video-list-screen {
             display: none; /* Başlangıçta gizli */
             flex-direction: column;
             gap: 15px;
-            animation: fadeIn Up 0.5s ease-out;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         /* GERİ DÖN BUTONU */
@@ -120,7 +120,7 @@
             cursor: pointer;
             margin-bottom: 15px;
             font-size: 0.9rem;
-            align-self: flex-start; /* Sola yasla */
+            align-self: flex-start;
             display: inline-flex;
             align-items: center;
             gap: 5px;
@@ -132,7 +132,13 @@
             border-color: white;
         }
 
-        /* KART TASARIMI (AYNI) */
+        /* KART TASARIMI */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         .card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
@@ -188,7 +194,6 @@
             letter-spacing: 1px;
         }
 
-        /* Animasyonlar */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -209,27 +214,75 @@
         </header>
 
         <div id="age-selection-screen">
-            
-            <div class="age-btn" onclick="handle4Yas()">
+            <div class="age-btn" onclick="showSection('4yas')">
                 <span class="age-number">4</span>
                 <span class="age-text">YAŞ GRUBU</span>
             </div>
-
-            <div class="age-btn" onclick="show5Yas()">
+            <div class="age-btn" onclick="showSection('5yas')">
                 <span class="age-number">5</span>
                 <span class="age-text">YAŞ GRUBU</span>
             </div>
-
         </div>
 
-        <div id="video-list-screen">
-            
-            <button class="back-btn" onclick="goBack()">
-                &#8592; Yaş Seçimine Dön
-            </button>
-
+        <div id="video-list-4yas" class="video-list-screen">
+            <button class="back-btn" onclick="goBack()">&#8592; Geri Dön</button>
             <div class="card-list">
                 
+                <a href="https://drive.google.com/file/d/1Ga7GbGl2h-KDc_j37sk3NXk0pVs3VhFw/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">1</div>
+                    <div class="card-title">Bitki Yetiştirme</div>
+                    <div class="card-icon">🌱</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1iWigGsmQr9l4QhPCrIkkLwPrtQS8rbyJ/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">2</div>
+                    <div class="card-title">Bonibondaki Gökkuşağı</div>
+                    <div class="card-icon">🌈</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1ZXFcCHM3nWB0of0KfeBXbZsuII6_5enN/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">3</div>
+                    <div class="card-title">Havanın Gücü</div>
+                    <div class="card-icon">💨</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1xwHahT6fVpZ5KXmyNO3S_9XX5ADNpAqb/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">4</div>
+                    <div class="card-title">Işık Saçan Ateş Böceği</div>
+                    <div class="card-icon">🐝</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1WPDkaoFdFIqRAHsapQPXngeccZMkVVBE/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">5</div>
+                    <div class="card-title">Renk Çarkı</div>
+                    <div class="card-icon">🎡</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1TKvan01XdN6-QJE0Q_xeoOSFsO1XibN9/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">6</div>
+                    <div class="card-title">Serinleten Pervane</div>
+                    <div class="card-icon">🌀</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1O-Mu2IJ9CmGYXyqLQcpbM-QFsRDlx6Vw/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">7</div>
+                    <div class="card-title">Tavşan ve Kaplumbağa</div>
+                    <div class="card-icon">🐢</div>
+                </a>
+
+                <a href="https://drive.google.com/file/d/1Xtxwpujp9_JcYqj_Y7WOkcHM2TZdllAe/view?usp=drive_link" class="card" target="_blank">
+                    <div class="card-number">8</div>
+                    <div class="card-title">Vücut Yapbozu</div>
+                    <div class="card-icon">🧩</div>
+                </a>
+
+            </div>
+        </div>
+
+        <div id="video-list-5yas" class="video-list-screen">
+            <button class="back-btn" onclick="goBack()">&#8592; Geri Dön</button>
+            <div class="card-list">
+
                 <a href="https://drive.google.com/file/d/1bpc9Rsbgcd1N53hqTp9KEZ1ssPax7H0c/view" class="card" target="_blank">
                     <div class="card-number">1</div>
                     <div class="card-title">Balıkları Yakalayalım</div>
@@ -287,26 +340,27 @@
     </div>
 
     <script>
-        function show5Yas() {
-            // Yaş seçimini gizle
+        function showSection(yas) {
+            // Ana ekranı gizle
             document.getElementById('age-selection-screen').style.display = 'none';
-            // Video listesini göster
-            document.getElementById('video-list-screen').style.display = 'flex';
-            // Başlığı güncelle
-            document.getElementById('main-subtitle').innerText = "5 Yaş Grubu Deneyleri";
-        }
-
-        function handle4Yas() {
-            // Henüz hazır olmadığı için uyarı ver
-            alert("🚧 4 Yaş Grubu deney videoları hazırlanıyor.\nÇok yakında burada olacak!");
+            
+            // Seçilen yaş grubunun listesini göster
+            if(yas === '4yas') {
+                document.getElementById('video-list-4yas').style.display = 'flex';
+                document.getElementById('main-subtitle').innerText = "4 Yaş Grubu Deneyleri";
+            } else if(yas === '5yas') {
+                document.getElementById('video-list-5yas').style.display = 'flex';
+                document.getElementById('main-subtitle').innerText = "5 Yaş Grubu Deneyleri";
+            }
         }
 
         function goBack() {
-            // Video listesini gizle
-            document.getElementById('video-list-screen').style.display = 'none';
-            // Yaş seçimini tekrar göster
+            // Tüm listeleri gizle
+            document.getElementById('video-list-4yas').style.display = 'none';
+            document.getElementById('video-list-5yas').style.display = 'none';
+            
+            // Ana ekranı göster
             document.getElementById('age-selection-screen').style.display = 'flex';
-            // Başlığı eski haline getir
             document.getElementById('main-subtitle').innerText = "Lütfen yaş grubunuzu seçin";
         }
     </script>
